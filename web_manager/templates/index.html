@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>视频管理</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <div class="page-shell">
+    <section class="controls">
+      <div class="chips" id="categoryChips"></div>
+      <div class="summary" id="summaryText">正在加载...</div>
+    </section>
+
+    <main>
+      <div class="video-grid" id="videoGrid"></div>
+      <div class="empty-state hidden" id="emptyState">当前分类下没有内容</div>
+      <div class="load-more-wrap">
+        <button type="button" class="primary-button hidden" id="loadMoreButton">继续浏览</button>
+      </div>
+      <div class="sentinel" id="sentinel" aria-hidden="true"></div>
+    </main>
+  </div>
+
+  <div class="toast hidden" id="toast"></div>
+
+  <dialog class="player-dialog" id="playerDialog">
+    <div class="player-shell">
+      <button type="button" class="icon-button" id="closePlayerButton" aria-label="关闭播放器">关闭</button>
+      <video id="player" playsinline controls preload="metadata"></video>
+      <div class="player-meta">
+        <div class="player-title" id="playerTitle"></div>
+        <div class="player-subtitle" id="playerSubtitle"></div>
+      </div>
+    </div>
+  </dialog>
+
+  <template id="videoCardTemplate">
+    <article class="video-card">
+      <button type="button" class="poster-button" data-role="play">
+        <img class="poster hidden" alt="" loading="lazy" decoding="async" />
+        <div class="poster-fallback">无缩略图</div>
+      </button>
+      <div class="card-body">
+        <div class="card-topline">
+          <button type="button" class="title-button" data-role="rename-title">
+            <span class="card-title"></span>
+            <span class="card-meta-inline">
+              <span class="meta-chip" data-role="size"></span>
+              <span class="meta-chip" data-role="duration"></span>
+            </span>
+          </button>
+          <button type="button" class="tag-edit-button" data-role="rename-category" title="改标签" aria-label="改标签">
+            <span data-role="tag"></span>
+          </button>
+        </div>
+        <div class="card-actions">
+          <button type="button" class="text-button" data-role="rename">改名</button>
+          <button type="button" class="text-button danger" data-role="delete">删除</button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</body>
+</html>
