@@ -1,0 +1,31 @@
+{
+  "paths": {
+    "input_dir": "D:\\static",
+    "output_dir": "D:\\static",
+    "thumbnail_dir": "D:\\static"
+  },
+  "ffmpeg": {
+    "executable": "./FFmpeg/ffmpeg.exe",
+    "probe_executable": "./FFmpeg/ffprobe.exe"
+  },
+  "thumbnail": {
+    "grid_size": 2,
+    "num_frames": 4,
+    "font_size": 50,
+    "text_color": [
+      0,
+      0,
+      0
+    ],
+    "background_color": [
+      255,
+      255,
+      255
+    ],
+    "show_info_header": true
+  },
+  "processing": {
+    "max_workers": 8,
+    "show_progress": true
+  }
+}

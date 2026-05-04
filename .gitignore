@@ -1,0 +1,4 @@
+/server_video_compress
+/batch_centered_cropping
+video_processor/snapshots.json
+web_manager/cache/durations.json
